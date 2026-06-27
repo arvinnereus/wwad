@@ -1,0 +1,6 @@
+# Keep shell scripts LF so they run on Linux/macOS regardless of clone settings.
+*.sh text eol=lf
+# Normalize text files in the repo.
+*.md text
+*.json text
+LICENSE text

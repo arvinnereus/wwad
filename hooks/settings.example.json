@@ -1,0 +1,26 @@
+{
+  "_comment": "WWAD optional launch gate. Merge into ~/.claude/settings.json and adjust the script paths to where you cloned the skill. Scripts are POSIX shell; on Windows run via Git Bash.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/skills/wwad/hooks/wwad-launch-nudge.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/skills/wwad/hooks/wwad-deploy-gate.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
