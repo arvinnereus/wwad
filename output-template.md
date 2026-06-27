@@ -22,14 +22,20 @@ landing page earns a screenful; a naming call earns five sentences.
   when the description is genuinely too thin to support any honest finding. If you can judge it, judge it
   and label it a description-based read (per SKILL.md step 1) — don't refuse just because it isn't live.>
 
-**Band read** (only the principles that bite this artifact; mark the rest N/A and omit them)
-| Principle | Band |
+**Fix now** (optional): <a discrete security / legal / privacy item whose urgency is independent of the
+focus verdict — credentials in plaintext, an open endpoint, PII collected without need. Flag it here so
+it isn't buried inside a 🔁/✂️ verdict. Omit the line entirely if there's nothing of the kind.>
+
+**Band read** (only the principles — or named lens tests — that bite this artifact; mark the rest N/A and omit them)
+| Principle or lens test | Band |
 |---|---|
-| <principle name> | Strong / Hedging / Broken |
+| <principle or lens-test name> | Strong / Hedging / Broken |
 | ... | ... |
 <Strong = Apple would claim it. Hedging = the instinct's there but it's covering its bets (most
 leverage). Broken = actively against the principle (fix first). The Broken/Hedging rows and your top
-cuts should name the same problems.>
+cuts should name the same problems. Some lenses (GTM, internal) carry named tests with no backing
+doctrine principle — e.g. "Pricing legibility", "One clear owner". When such a test is what bites, name
+the test in the row; don't force the finding onto an ill-fitting principle.>
 
 ## What it gets right
 <One or two sentences, only if genuinely load-bearing. Not a section to fill — if there's little worth
@@ -85,9 +91,9 @@ default to this — each naming the principle behind it.>
 <Optional, kept short: a few concrete lines on the recommended path made real. Don't over-specify a
 product the user hasn't asked you to design — this is illustration, not a spec.>
 
-## The one more thing
-<Most decisions have no demo moment — omit this section unless there's a genuinely inevitable-making
-moment to name. Don't reach for filler on a yes/no call.>
+## The one more thing (usually omit on a yes/no call)
+<Include only if there's a genuinely inevitable-making moment to name; most decisions have none, so omit
+the heading entirely rather than reaching for filler.>
 ```
 
 ---

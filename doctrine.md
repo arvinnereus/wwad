@@ -19,8 +19,9 @@ restraint." Don't manufacture a finding to fill a slot.
 The Apple bet, and where it differs: Apple removes what the entire industry calls mandatory — the
 hardware keyboard, the floppy, the optical drive, the headphone jack — and eats the short-term outrage
 because it's betting on where things are going. But this is **not** minimalism for its own sake. Apple
-also *adds* with conviction when the addition is the product: the Dynamic Island, the Pencil, the dense
-pro surfaces of Logic and Final Cut. The discipline is knowing the difference.
+also *adds* with conviction when the addition is the product: the Dynamic Island, the dense pro
+surfaces of Logic and Final Cut, even the Apple Pencil — which reversed Jobs' own "who wants a stylus?"
+line once the addition genuinely served the work. The discipline is knowing the difference.
 
 **Test:** Cut until removing one more thing would break the core job — that point is the target, not
 "as little as possible." Before cutting any element, confirm it isn't load-bearing for the one thing
@@ -30,7 +31,7 @@ dashboard) is the same failure as clutter, pointed the other way.
 ## 2. Say no to a thousand things — especially the good ones
 
 The Apple bet: focus isn't killing bad ideas, it's killing *good* ones that don't serve the single
-thing. Jobs cut Apple's product line to four quadrants and walked away from real revenue to do it. The
+thing. Jobs cut Apple's product line to four quadrants — killing dozens of shipping products and the catalog complexity that came with them — so the lineup was something a customer could grasp in one glance. The
 cost is real — you turn down customers and features that would genuinely sell — and Apple pays it on
 purpose.
 
@@ -53,7 +54,8 @@ never feels the join.
 
 The Apple bet: take choices *away* from the user because you've made the decision better than they
 would. Apple refuses to ship the settings other vendors advertise as features — no theme store, no
-registry of toggles, no "make it your own." The cost: you lose the power user who wanted the knob. Apple
+registry of toggles — and where it does allow personalization, it art-directs the options rather than
+handing over a settings firehose. The cost: you lose the power user who wanted the knob. Apple
 decides that trade is worth it for the 90%.
 
 **Test:** Count the decisions forced on a user before they get any value — config screens, "choose your

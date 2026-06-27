@@ -73,7 +73,7 @@ Verdict: ✂️ Apple ships it after these cuts.
 
 The cuts (ranked, highest leverage first)
 1. Delete the spin-to-win wheel, the 5-second newsletter popup, and the live-chat bubble — three
-   trust leaks before the visitor reads a word. (Premium restraint; It just works)
+   trust leaks before the visitor reads a word. (Premium restraint; Cut the chrome)
 2. Cut the hero from three competing CTAs to one. (One primary action; Say no)
 3. Rewrite the headline to say one true thing — three nouns stapled to a buzzword survives the squint
    as nothing. (Three-second clarity; Taste)
@@ -113,13 +113,6 @@ adjust the paths. The scripts are POSIX shell — on Windows, run them via Git B
 These are deliberately opt-in: the skill is fully useful without them.
 
 ---
-
-## Design notes
-
-WWAD was built and then hardened through an adversarial critique loop — independent agents ran it on
-real artifacts, tried to break it, and rewrote it until the doctrine stopped reading as "generic
-minimalism in Apple costume," the scoring stopped being fake precision, and it stopped over-cutting
-artifacts that should be rich. It practices what it preaches: the lenses are additive, not repetitive.
 
 ## License
 

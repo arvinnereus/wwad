@@ -39,8 +39,19 @@ default is clutter in a terminal. Quiet success, loud failure, detail on request
 ## Built to be scripted
 A CLI or API is consumed by pipelines and other programs, not just humans. Is there a `--json` (or
 `--quiet`) mode for machine use? Do results go to stdout and errors/logs to stderr, so a script can
-separate them? Are exit codes stable and meaningful? Human-friendly defaults are right — but a
-developer surface that can't be scripted cleanly fails the 90% case for its actual users.
+separate them? Are exit codes stable and meaningful? For an HTTP API the status code *is* the exit
+code: 2xx must mean success, 4xx a caller error, 5xx a server error — a 200 carrying an `{"error":...}`
+body is the API equivalent of a CLI exiting 0 on failure, and it silently breaks every client that
+trusts the status line. Human-friendly defaults are right — but a developer surface that can't be
+scripted cleanly fails the 90% case for its actual users.
+
+## Versioned to evolve
+Can this surface change without breaking the callers already using it? Deprecation (the next test)
+covers *removing* a thing; this is the forward direction — shipping v2 without a flag day. An API needs
+some version signal (path, media-type, or header) and a deprecation signal (Sunset/Deprecation) so it
+can grow instead of only breaking. On a CLI this is muted — the binary is release-versioned — which is
+exactly why it's easy to miss on an API. Don't mandate a particular scheme; ask the question — is there
+*any* version signal? The absence of one is a contract that can only be broken, never grown.
 
 ## A cut needs a migration path
 Before recommending you delete a command, endpoint, or flag, remember there's an installed base you

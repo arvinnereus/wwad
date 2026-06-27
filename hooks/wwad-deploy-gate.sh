@@ -16,7 +16,7 @@ payload="$(cat)"
 # words sitting in unrelated arguments.
 cmd="$(printf '%s' "$payload" | grep -oE '"command"[[:space:]]*:[[:space:]]*"[^"]*"' || true)"
 
-deploy_re='wrangler[[:space:]]+(deploy|pages[[:space:]]+deploy|versions[[:space:]]+upload)|vercel([[:space:]]+(deploy|--prod|build))?|netlify[[:space:]]+deploy|npm[[:space:]]+publish|pnpm[[:space:]]+publish|git[[:space:]]+push[[:space:]].*(origin[[:space:]]+)?(main|master)'
+deploy_re='wrangler[[:space:]]+(deploy|pages[[:space:]]+deploy|versions[[:space:]]+upload)|vercel([[:space:]]+(deploy|--prod|build))?|netlify[[:space:]]+deploy|npm[[:space:]]+publish|pnpm[[:space:]]+publish|git[[:space:]]+push([[:space:]][^"]*)?[[:space:]]+(main|master)([^[:alnum:]/_.-]|$)'
 
 if printf '%s' "$cmd" | grep -qiE "$deploy_re"; then
   echo "WWAD deploy gate: you're about to deploy. Run /wwad on what you're shipping first — a focus/restraint pass is cheapest before it goes live. Then re-run this command. (Override consciously, or remove this hook, to proceed.)" >&2
