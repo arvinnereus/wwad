@@ -1,5 +1,5 @@
 {
-  "_comment": "WWAD optional launch gate. Merge into ~/.claude/settings.json and adjust the script paths to where you cloned the skill. Scripts are POSIX shell; on Windows run via Git Bash.",
+  "_comment": "WWAD optional launch gate. Merge into ~/.claude/settings.json and adjust the script paths to where you cloned the skill. Scripts are POSIX shell; on Windows run via Git Bash. The gate matcher covers Bash and PowerShell so a deploy can't slip through the other shell tool.",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -13,7 +13,7 @@
     ],
     "PreToolUse": [
       {
-        "matcher": "Bash",
+        "matcher": "Bash|PowerShell",
         "hooks": [
           {
             "type": "command",

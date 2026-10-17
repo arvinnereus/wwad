@@ -75,3 +75,11 @@ If something genuinely clears the bar, say so and stop. Do **not** manufacture c
 template — inventing weak findings on a strong artifact is its own kind of clutter, and it burns the
 user's trust in the sharp findings that matter. A short "this is already Apple-tight; here's the one
 thing I'd still watch" is a complete, honest verdict.
+
+## If the deploy gate sent you here
+
+The optional gate (`hooks/wwad-deploy-gate.sh`) blocks deploy commands until a focus pass has run.
+Do the pass on what is actually about to ship. Once it is delivered and the user still intends to
+ship, record it with `bash <skill-dir>/hooks/wwad-pass.sh`, then re-run the deploy. The gate stays
+open for 30 minutes (`WWAD_GATE_MINUTES`). Never record a pass you didn't do — the gate only means
+something if the record is honest.

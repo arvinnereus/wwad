@@ -103,12 +103,25 @@ WWAD can run as a *standing gate* so a focus pass isn't forgotten before you shi
 
 - **A nudge** (`UserPromptSubmit`) — when you use launch language ("ship", "go live", "publish"),
   it reminds you to run `/wwad` first. Non-blocking.
-- **A gate** (`PreToolUse` on `Bash`) — when a real deploy command runs (`wrangler deploy`, `vercel`,
-  `npm publish`, `git push` to main), it pauses and asks you to run `/wwad` first.
+- **A gate** (`PreToolUse` on `Bash` and `PowerShell`) — when a real deploy command runs
+  (`wrangler deploy` / `pages deploy`, `vercel`, `netlify deploy`, `npm`/`pnpm`/`yarn publish`, `git push`
+  to main, or a project `deploy.sh`), it pauses and asks you to run `/wwad` first. Preview runs
+  (`deploy.sh --preview`) and pushes to other branches pass.
 
-Example config and the two scripts are in [`hooks/`](hooks/). To enable, merge
+**After the pass**, record it and re-run the deploy:
+
+```bash
+bash ~/.claude/skills/wwad/hooks/wwad-pass.sh   # opens the gate for 30 minutes (WWAD_GATE_MINUTES)
+```
+
+Example config and the three scripts are in [`hooks/`](hooks/). To enable, merge
 [`hooks/settings.example.json`](hooks/settings.example.json) into your `~/.claude/settings.json` and
 adjust the paths. The scripts are POSIX shell — on Windows, run them via Git Bash.
+
+The gate reads the real command out of the hook's JSON, quoted paths and all, so `cd "My Site" && npx
+wrangler pages deploy` is caught. Commit messages (`-m "…"`, `--message=`) are ignored, so describing a deploy in a commit doesn't trip it;
+a deploy chained after the commit still does. Otherwise it's deliberately conservative: a command that merely
+*mentions* a deploy (test data, an `echo`) is stopped too. Record a pass or move that text into a file.
 
 These are deliberately opt-in: the skill is fully useful without them.
 
