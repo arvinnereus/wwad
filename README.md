@@ -118,10 +118,9 @@ Example config and the three scripts are in [`hooks/`](hooks/). To enable, merge
 [`hooks/settings.example.json`](hooks/settings.example.json) into your `~/.claude/settings.json` and
 adjust the paths. The scripts are POSIX shell — on Windows, run them via Git Bash.
 
-The gate reads the real command out of the hook's JSON, quoted paths and all, so `cd "My Site" && npx
-wrangler pages deploy` is caught. Commit messages (`-m "…"`, `--message=`) are ignored, so describing a deploy in a commit doesn't trip it;
-a deploy chained after the commit still does. Otherwise it's deliberately conservative: a command that merely
-*mentions* a deploy (test data, an `echo`) is stopped too. Record a pass or move that text into a file.
+The gate reads the real command out of the hook's JSON, quoted paths and all, and only counts deploys that
+are **run**, not ones that are mentioned: `cd "My Site" && npx wrangler pages deploy` is caught, while
+`cat deploy.sh`, `git add deploy.sh`, an `echo`, or a commit message that names a deploy passes.
 
 These are deliberately opt-in: the skill is fully useful without them.
 
