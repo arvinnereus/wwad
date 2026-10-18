@@ -120,7 +120,8 @@ adjust the paths. The scripts are POSIX shell — on Windows, run them via Git B
 
 The gate reads the real command out of the hook's JSON, quoted paths and all, and only counts deploys that
 are **run**, not ones that are mentioned: `cd "My Site" && npx wrangler pages deploy` is caught, while
-`cat deploy.sh`, `git add deploy.sh`, an `echo`, or a commit message that names a deploy passes.
+`cat deploy.sh`, `git add deploy.sh`, an `echo`, or a commit message that names a deploy passes. So do
+read-only lookalikes such as `wrangler deployments list` and `wrangler pages deployment list`.
 
 These are deliberately opt-in: the skill is fully useful without them.
 

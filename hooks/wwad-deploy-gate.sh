@@ -37,7 +37,9 @@ assign='([A-Za-z_][A-Za-z0-9_]*=[^[:space:]]*[[:space:]]+)*'
 path='("[^"]*[/\\]|[^[:space:]";&|]*[/\\])?'
 ext='(\.(cmd|exe|ps1))?"?'
 runner='('"$path"'(npx|bunx)'"$ext"'[[:space:]]+(-y[[:space:]]+)?|(pnpm|yarn)'"$ext"'[[:space:]]+((dlx|exec)[[:space:]]+)?)?'
-tools='(wrangler'"$ext"'[[:space:]]+(deploy|pages[[:space:]]+deploy|versions[[:space:]]+upload)|vercel'"$ext"'([[:space:]]+(deploy|--prod|build)|[[:space:]]*$)|netlify'"$ext"'[[:space:]]+deploy|(npm|pnpm|yarn)'"$ext"'[[:space:]]+publish|git'"$ext"'([[:space:]]+-C[[:space:]]+("[^"]*"|[^[:space:]]+))?[[:space:]]+push([[:space:]]+[^[:space:]]+)*[[:space:]:](main|master)([^[:alnum:]/_.-]|$))'
+# Subcommands end at a space or the line's end, so read-only lookalikes such as
+# `wrangler deployments list` or `wrangler pages deployment list` aren't taken for deploys.
+tools='(wrangler'"$ext"'[[:space:]]+(deploy|pages[[:space:]]+deploy|versions[[:space:]]+upload)([[:space:]]|$)|vercel'"$ext"'([[:space:]]+(deploy|--prod|build)|[[:space:]]*$)|netlify'"$ext"'[[:space:]]+deploy([[:space:]]|$)|(npm|pnpm|yarn)'"$ext"'[[:space:]]+publish([[:space:]]|$)|git'"$ext"'([[:space:]]+-C[[:space:]]+("[^"]*"|[^[:space:]]+))?[[:space:]]+push([[:space:]]+[^[:space:]]+)*[[:space:]:](main|master)([^[:alnum:]/_.-]|$))'
 deploy_re="${start}${kw}${assign}${runner}${path}${tools}"
 # Project deploy scripts (./deploy.sh, bash path/deploy.sh). A --preview run isn't a launch.
 script_re="${start}${kw}${assign}((ba|z)?sh${ext}[[:space:]]+)?${path}deploy\\.sh"
